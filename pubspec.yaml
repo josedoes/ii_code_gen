@@ -1,0 +1,80 @@
+name: ii_code_gen
+description: Code Gen for Dart
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 2.2.2+185
+
+environment:
+  sdk: ">=3.0.6 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  intl: ^0.18.1
+  get_it: ^7.6.4
+  package_info_plus: ^4.1.0
+  either_dart: ^1.0.0
+  firebase_database: ^10.2.5
+  go_router: ^10.2.0
+  uuid: ^3.0.7
+  stacked: ^3.4.1
+  firebase_auth: ^4.9.0
+  equatable: ^2.0.5
+  dart_openai: ^4.0.0
+  async: ^2.11.0
+  cloud_firestore: ^4.9.1
+  pluto_grid: ^7.0.2
+  shared_preferences: ^2.2.0
+  flutter_switch: ^0.3.2
+  firebase_storage: ^11.2.6
+  firebase_storage_mocks: ^0.6.1
+  url_launcher: ^6.1.14
+  chat_bubbles: ^1.5.0
+
+  llm_chat:
+    git:
+      url: https://github.com/josedoes/llm_chat
+      ref: master
+
+  open_llm_studio_api:
+    git:
+      ref: main
+      url: https://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:x-oauth-basic@github.com/intelligent-iterations/open_llm_studio_api.git
+
+
+
+  google_fonts: ^6.1.0
+  datadog_flutter_plugin: ^1.6.2
+  flutter_dropzone: ^3.0.6
+  universal_html: ^2.2.4
+  flutter_quill: ^7.4.6
+  collection: ^1.17.2
+  simple_animations: ^5.0.2
+  syncfusion_flutter_pdf: ^23.1.38
+  docx_to_text: ^1.0.1
+  tiktoken: ^1.0.3
+  infinite_scroll_pagination: ^4.0.0
+
+
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  mocktail:
+  fake_cloud_firestore:
+  firebase_storage_mocks: ^0.6.1
+
+  flutter_lints: ^2.0.3
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/png/
+    - assets/png/icons/
+    - assets/test_file.txt
