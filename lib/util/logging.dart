@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:ii_code_gen/service/data_dog_service.dart';
-import 'package:open_llm_studio_api/service/getit_injector.dart';
+
+
 
 void devLog({
   required String tag,
@@ -21,6 +21,5 @@ void errorLog({
   if (kDebugMode) {
     print(log);
   } else {
-    dataDogService.logError(log);
   }
 }

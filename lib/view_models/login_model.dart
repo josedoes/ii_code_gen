@@ -2,10 +2,10 @@ import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ii_code_gen/service/auth/auth_service.dart';
-import 'package:open_llm_studio_api/repository/user_repository.dart';
+import 'package:ii_code_gen/service/navigation_service.dart';
+
 import 'package:stacked/stacked.dart';
 
-import '../service/data_dog_service.dart';
 import '../util/logging.dart';
 
 class LoginViewModel extends BaseViewModel {
@@ -30,11 +30,15 @@ class LoginViewModel extends BaseViewModel {
       Future(
         () async {
           if (formKey.currentState!.validate()) {
-            await login(
+            final result = await login(
               context: context,
               email: usernameController.text,
               password: passwordController.text,
             );
+
+            if (firebaseAuthService.uid != null) {
+              navigationService.goToProject();
+            }
           }
         },
       ),
@@ -57,17 +61,6 @@ class LoginViewModel extends BaseViewModel {
     );
 
     if (result.user != null) {
-      dataDogService.setUserInfo(
-        id: result.user?.uid ?? '',
-        email: result.user?.email ?? '',
-      );
-
-      final user = await userModelRepository.read(id: result.user?.uid ?? '');
-
-      if (user.isRight) {
-        OpenAI.apiKey = user.right?.openaiKey ?? '';
-      }
-
       await firebaseAuthService.getUserBearerToken();
       devLog(tag: tag, message: 'Bearer ${firebaseAuthService.token}');
     } else {

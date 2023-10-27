@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
-import 'package:open_llm_studio_api/service/getit_injector.dart';
 
+import '../../main.dart';
 import '../../util/logging.dart';
 
 FirebaseAppVersionService get firebaseAppVersionService =>

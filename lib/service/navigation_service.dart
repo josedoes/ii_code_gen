@@ -1,11 +1,10 @@
-import 'package:datadog_flutter_plugin/datadog_flutter_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ii_code_gen/service/data_dog_service.dart';
 import 'package:ii_code_gen/view/404/not_found_view.dart';
-import 'package:open_llm_studio_api/service/getit_injector.dart';
+import 'package:ii_code_gen/view/project_view/project_view.dart';
+import '../main.dart';
+import '../view/home_view.dart';
 import '../view/login/login_view.dart';
-import 'auth/auth_service.dart';
 
 NavigationService get navigationService => locate<NavigationService>();
 
@@ -15,32 +14,33 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 class NavigationService {
-  NavigationService(this.datadogObserver) {
+  NavigationService() {
     router = GoRouter(
       debugLogDiagnostics: true,
       navigatorKey: _rootNavigatorKey,
-      observers: [
-        dataDogService.observer,
-      ],
+      observers: [],
+      initialLocation: '/',
       errorPageBuilder: (_, state) =>
           const NoTransitionPage(child: NotFoundView()),
-      redirect: (BuildContext context, GoRouterState state) {
-        // if(!kDebugMode) {
-        if (!firebaseAuthService.isSignedIn) {
-          if (["/register", "/login"].contains(state.matchedLocation)) {
-            return state.matchedLocation;
-          } else {
-            return loginRoute;
-          }
-        } else {
-          return state.matchedLocation;
-        }
-        // }
-      },
+      redirect: (BuildContext context, GoRouterState state) {},
       routes: [
         GoRoute(
+          path: homeRoute,
+          name: 'home',
+          builder: (_, __) {
+            return HomeView();
+          },
+        ),
+        GoRoute(
+          path: projectPath,
+          name: 'project',
+          builder: (_, __) {
+            return ProjectView();
+          },
+        ),
+        GoRoute(
           path: loginRoute,
-          name: 'login',
+          name: 'LoginView',
           builder: (_, __) {
             return LoginView();
           },
@@ -48,8 +48,6 @@ class NavigationService {
       ],
     );
   }
-
-  final DatadogNavigationObserver datadogObserver;
 
   late GoRouter router;
 
@@ -69,7 +67,11 @@ class NavigationService {
   void goToHome() {
     goRoute(route: homeRoute);
   }
+
+  void goToProject() {
+    goRoute(route: projectPath);
+  }
 }
 
-const loginRoute = "/login";
-const homeRoute = "/homeRoute";
+const loginRoute = "/";
+const homeRoute = "/home";

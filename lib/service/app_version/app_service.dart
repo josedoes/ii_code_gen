@@ -1,7 +1,7 @@
 import 'package:either_dart/either.dart';
-import 'package:open_llm_studio_api/service/getit_injector.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+import '../../main.dart';
 import '../../util/logging.dart';
 import 'firebase_app_version_service.dart';
 
@@ -30,13 +30,13 @@ class AppService {
     return versionCells[0] * 10000 + versionCells[1] * 100 + versionCells[2];
   }
 
-  Future<bool> appVersionIsValid({required String appVersion}) async {
-    final String minVersion =
-        await firebaseAppVersionService.firebaseAppVersion();
-    final int appV = getExtendedVersionNumber(appVersion);
-    final int minV = getExtendedVersionNumber(minVersion);
-
-    final isValid = minV <= appV;
-    return isValid;
-  }
+  // Future<bool> appVersionIsValid({required String appVersion}) async {
+  //   final String minVersion =
+  //       await firebaseAppVersionService.firebaseAppVersion();
+  //   final int appV = getExtendedVersionNumber(appVersion);
+  //   final int minV = getExtendedVersionNumber(minVersion);
+  //
+  //   final isValid = minV <= appV;
+  //   return isValid;
+  // }
 }

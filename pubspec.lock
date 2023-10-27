@@ -25,14 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.0"
-  animated_text_kit:
-    dependency: transitive
-    description:
-      name: animated_text_kit
-      sha256: "37392a5376c9a1a503b02463c38bc0342ef814ddbb8f9977bc90f2a84b22fa92"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.2.2"
   antlr4:
     dependency: transitive
     description:
@@ -129,14 +121,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  clipboard:
-    dependency: transitive
-    description:
-      name: clipboard
-      sha256: "2ec38f0e59878008ceca0ab122e4bfde98847f88ef0f83331362ba4521f565a9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.3"
   clock:
     dependency: transitive
     description:
@@ -201,14 +185,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  cupertino_icons:
-    dependency: transitive
-    description:
-      name: cupertino_icons
-      sha256: d57953e10f9f8327ce64a508a355f0b1ec902193f66288e8cb5070e7c47eeb2d
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.6"
   dart_openai:
     dependency: "direct main"
     description:
@@ -337,6 +313,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
+  file_picker:
+    dependency: "direct main"
+    description:
+      name: file_picker
+      sha256: "903dd4ba13eae7cef64acc480e91bf54c3ddd23b5b90b639c170f3911e489620"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.0"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -362,7 +346,7 @@ packages:
     source: hosted
     version: "5.8.5"
   firebase_core:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_core
       sha256: "37299e4907391d7fac8c7ea059bb3292768cc07b72b6c6c777675cc58da2ef4d"
@@ -539,6 +523,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      sha256: b068ffc46f82a55844acfa4fdbb61fad72fa2aef0905548419d97f0f95c456da
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.17"
   flutter_quill:
     dependency: "direct main"
     description:
@@ -695,15 +687,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  llm_chat:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "694af03d07ce9820c7b1012713962fbcd9fe422a"
-      url: "https://github.com/josedoes/llm_chat"
-    source: git
-    version: "1.0.0+1"
   logger:
     dependency: transitive
     description:
@@ -776,15 +759,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  open_llm_studio_api:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: main
-      resolved-ref: d1b11211f2888e3424991f41dd88b721635892da
-      url: "https://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:x-oauth-basic@github.com/intelligent-iterations/open_llm_studio_api.git"
-    source: git
-    version: "1.0.0+1"
   package_config:
     dependency: transitive
     description:

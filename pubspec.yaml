@@ -20,6 +20,7 @@ dependencies:
   uuid: ^3.0.7
   stacked: ^3.4.1
   firebase_auth: ^4.9.0
+  firebase_core:
   equatable: ^2.0.5
   dart_openai: ^4.0.0
   async: ^2.11.0
@@ -32,17 +33,7 @@ dependencies:
   url_launcher: ^6.1.14
   chat_bubbles: ^1.5.0
 
-  llm_chat:
-    git:
-      url: https://github.com/josedoes/llm_chat
-      ref: master
-
-  open_llm_studio_api:
-    git:
-      ref: main
-      url: https://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:x-oauth-basic@github.com/intelligent-iterations/open_llm_studio_api.git
-
-
+  file_picker: 6.0.0
 
   google_fonts: ^6.1.0
   datadog_flutter_plugin: ^1.6.2

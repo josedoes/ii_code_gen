@@ -1,12 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:ii_code_gen/service/data_dog_service.dart';
-import 'package:open_llm_studio_api/model/terms.dart';
-import 'package:open_llm_studio_api/model/user.dart';
-import 'package:open_llm_studio_api/repository/project_repository.dart';
-import 'package:open_llm_studio_api/repository/terms_repository.dart';
-import 'package:open_llm_studio_api/repository/user_repository.dart';
-import 'package:open_llm_studio_api/service/getit_injector.dart';
 
+import '../../main.dart';
 import '../../util/logging.dart';
 import 'auth_result.dart';
 
@@ -19,18 +13,11 @@ class FirebaseAuthService {
 
   bool get isSignedIn => user != null;
 
-  Terms? get _terms => termsRepository.termsCache.values.isEmpty
-      ? null
-      : termsRepository.termsCache.values.first;
-
-
   User? get user => auth.currentUser;
 
   String? get uid => user?.uid;
 
   AuthCredential? _pendingCredential;
-
-  UserModel? get userModel => userModelRepository.userModelCache[uid ?? ''];
 
   Future<bool> initUser() async {
     devLog(tag: tag, message: 'Init user called');
@@ -145,29 +132,7 @@ class FirebaseAuthService {
           message:
               'Create user with email result: ${result.credential} ${result.user}');
 
-      if (result.user != null) {
-        final UserModel userModel = UserModel(
-          lastAcceptedTermsVersion: null,
-          projects:
-              projectRepository.projectCache.values.map((e) => e.id).toList(),
-          id: result.user?.uid,
-          email: result.user?.email,
-          openaiKey: "",
-          role: "admin",
-          sessions: const [],
-          subscribed: false,
-          subscriptionExpiry: "",
-          subscriptionPackage: "",
-          stripeID: '',
-        );
-
-        await userModelRepository.create(
-          model: userModel,
-        );
-
-        dataDogService.setUserInfo(
-            id: result.user?.uid ?? '', email: result.user?.email ?? '');
-      }
+      if (result.user != null) {}
 
       return FirebaseAuthenticationResult(user: result.user);
     } on FirebaseAuthException catch (e) {
@@ -224,7 +189,6 @@ class FirebaseAuthService {
 
     try {
       await auth.signOut();
-      dataDogService.endSession();
       _clearPendingData();
     } catch (e) {
       errorLog(tag: tag, message: 'Could not sign out of social account. $e');
