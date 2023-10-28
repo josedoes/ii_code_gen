@@ -5,9 +5,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Router;
 import 'package:get_it/get_it.dart';
+import 'package:ii_code_gen/repository/base_model_repository.dart';
 import 'package:ii_code_gen/repository/project_repository.dart';
 import 'package:ii_code_gen/service/app_version/app_service.dart';
 import 'package:ii_code_gen/service/auth/auth_service.dart';
+import 'package:ii_code_gen/service/base_model_service.dart';
 import 'package:ii_code_gen/service/firebase/firebase_service.dart';
 import 'package:ii_code_gen/service/navigation_service.dart';
 import 'package:ii_code_gen/service/project_service.dart';
@@ -44,8 +46,12 @@ Future<void> main(args, Flavor flavor) async {
     register(NavigationService());
 
     register(FirestoreService(firestore: FirebaseFirestore.instance));
+
     register(ProjectService());
     register(ProjectRepository());
+
+    register(BaseModelService());
+    register(BaseModelRepository());
 
     final appVersion = await appService.versionNumber();
 

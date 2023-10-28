@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ii_code_gen/view/404/not_found_view.dart';
+import 'package:ii_code_gen/view/base_model_view/base_model_view.dart';
 import 'package:ii_code_gen/view/project_view/project_view.dart';
 import '../main.dart';
 import '../view/home_view.dart';
@@ -45,6 +46,13 @@ class NavigationService {
             return LoginView();
           },
         ),
+        GoRoute(
+          path: baseModelPath,
+          name: baseModelPath,
+          builder: (_, __) {
+            return BaseModelView();
+          },
+        ),
       ],
     );
   }
@@ -70,6 +78,9 @@ class NavigationService {
 
   void goToProject() {
     goRoute(route: projectPath);
+  }
+  void goToBaseModel() {
+    goRoute(route: baseModelPath);
   }
 }
 

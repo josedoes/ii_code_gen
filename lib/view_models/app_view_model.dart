@@ -38,7 +38,7 @@ class AppViewModel extends BaseViewModel {
 
 
   void goToUser() {
-    navigationService.goToProject();
+    navigationService.goToBaseModel();
   }
 
   final openAIKeyController = TextEditingController();

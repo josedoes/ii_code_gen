@@ -37,7 +37,7 @@ class LoginViewModel extends BaseViewModel {
             );
 
             if (firebaseAuthService.uid != null) {
-              navigationService.goToProject();
+              navigationService.goToBaseModel();
             }
           }
         },
